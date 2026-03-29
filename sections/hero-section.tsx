@@ -10,6 +10,7 @@ import { stats } from "@/lib/site-data";
 
 const GitHubIcon = brandIcons.github;
 const LinkedInIcon = brandIcons.linkedin;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const heroSignals = [
   { label: "System Design", value: "Services, queues, scaling, resilience" },
@@ -115,7 +116,7 @@ export function HeroSection() {
             <div className="relative grid gap-4 sm:grid-cols-[0.86fr_1.14fr]">
                 <div className="relative min-h-92 overflow-hidden rounded-[1.8rem] bg-background/72 ring-1 ring-border/35">
                   <Image
-                    src="/photo-1.png"
+                    src={`${basePath}/photo-1.png`}
                     alt="Portrait of Er. Bikash Basaula"
                     fill
                     priority
