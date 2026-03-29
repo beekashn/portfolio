@@ -17,7 +17,7 @@ function TimelineEntry({ item, last }: { item: TimelineItem; last: boolean }) {
         <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary/40 bg-background">
           <div className="h-2.5 w-2.5 rounded-full bg-primary" />
         </div>
-        {!last && <div className="mt-2 min-h-[2rem] w-px flex-1 bg-gradient-to-b from-primary/30 to-transparent" />}
+        {!last && <div className="mt-2 min-h-8 w-px flex-1 bg-linear-to-b from-primary/30 to-transparent" />}
       </div>
 
       <div className="pb-6">
@@ -86,7 +86,7 @@ export function ExperienceSection() {
               Experience and technical growth.
             </h2>
             <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base font-serif">
-              Professional work, early engineering experience, and formal study all shape how I build production systems today.
+              Professional work, early engineering experience, and formal study all shape how I design software today.
             </p>
           </div>
         </div>

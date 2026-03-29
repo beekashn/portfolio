@@ -75,7 +75,7 @@ export function SiteHeader() {
             <span className="text-xs font-bold font-display text-primary">BB</span>
           </div>
           <span className="hidden text-sm font-bold tracking-[0.18em] font-display sm:block">
-            BIKASH
+            ER. BIKASH
           </span>
         </Link>
 

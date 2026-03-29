@@ -15,8 +15,8 @@ export function ContactSection() {
           <div className="space-y-8">
             <SectionHeading
               eyebrow="Contact"
-              title="Let’s talk."
-              description="If you need help building services, improving system architecture, or shipping more confidently, I’d be happy to connect."
+              title="Let's talk."
+              description="If you need help shaping backend systems, refining architecture, or delivering with more confidence, I'd be happy to connect."
             />
 
             <div className="space-y-3">
@@ -49,9 +49,9 @@ export function ContactSection() {
           <div className="relative overflow-hidden rounded-[2rem] bg-card/60 p-6 ring-1 ring-border/45 sm:p-8">
             <div className="relative">
               <p className="section-label">Send a message</p>
-              <h3 className="mt-2 text-2xl font-display font-bold tracking-tight">Share the problem you are solving.</h3>
+              <h3 className="mt-2 text-2xl font-display font-bold tracking-tight">Tell me what you are building.</h3>
               <p className="mt-2 text-sm leading-6 text-muted-foreground font-serif">
-                Send a short note about your project, team, or technical challenge and I will take it from there.
+                Send a short note about your project, team, or technical challenge and we can take it from there.
               </p>
               <div className="mt-7">
                 <ContactForm />

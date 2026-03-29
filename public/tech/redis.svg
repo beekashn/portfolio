@@ -1,8 +1,0 @@
-<svg width="140" height="64" viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="138" height="62" rx="31" fill="#0B0D12"/>
-  <rect x="1" y="1" width="138" height="62" rx="31" stroke="#1E232D"/>
-  <path d="M29 19L40 24L29 29L18 24L29 19Z" fill="#D82C20"/>
-  <path d="M40 24L29 29L18 24V30L29 35L40 30V24Z" fill="#A41E11"/>
-  <path d="M40 30L29 35L18 30V36L29 41L40 36V30Z" fill="#FF5A4A"/>
-  <text x="52" y="38" fill="#E8EDF5" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="2">REDIS</text>
-</svg>

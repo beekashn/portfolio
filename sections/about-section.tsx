@@ -10,12 +10,12 @@ export function AboutSection() {
           <div className="space-y-6">
             <SectionHeading
               eyebrow="About Me"
-              title="Engineering with production discipline."
-              description="I like turning messy product requirements into systems that are easier to maintain, safer to ship, and clearer to operate."
+              title="Engineering with clarity and care."
+              description="I like turning messy product requirements into systems that are easier to maintain, safer to release, and clearer to understand."
             />
             <p className="max-w-lg text-sm leading-8 text-muted-foreground font-serif">
               I want the next engineer to understand what the system is doing and why. That means readable middleware,
-              traceable failures, and decisions that still make sense after the feature ships.
+              traceable failures, and decisions that still make sense long after the feature goes live.
             </p>
           </div>
 

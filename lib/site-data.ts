@@ -1,16 +1,15 @@
+import type { ComponentType } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   Activity,
-  BriefcaseBusiness,
   Cloud,
   Database,
   Layers3,
   LockKeyhole,
-  Mail,
   Server,
   TerminalSquare,
-  WalletCards,
 } from "lucide-react";
+import { brandIcons } from "@/components/brand-icons";
 
 export type NavItem = {
   id: string;
@@ -38,6 +37,13 @@ export type TimelineItem = {
   bullets: string[];
 };
 
+export type ContactLink = {
+  label: string;
+  value: string;
+  href: string;
+  icon: ComponentType<{ className?: string }>;
+};
+
 export const navItems: NavItem[] = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
@@ -48,9 +54,9 @@ export const navItems: NavItem[] = [
 ];
 
 export const stats = [
-  { label: "Production APIs", value: "10+" },
+  { label: "Products Shipped", value: "10+" },
   { label: "Years Building", value: "2+" },
-  { label: "Cloud & DevOps Tools", value: "8+" },
+  { label: "Cloud & Delivery Tools", value: "8+" },
 ];
 
 export const skillGroups: SkillGroup[] = [
@@ -98,21 +104,21 @@ export const skillGroups: SkillGroup[] = [
 
 export const serviceCards = [
   {
-    title: "Reliable Backend Systems",
+    title: "Steady Backend Foundations",
     description:
-      "I build APIs and internal services that stay clear, maintainable, and dependable under real production pressure.",
+      "I build backend services and internal tooling that stay understandable, maintainable, and dependable as complexity grows.",
     icon: Layers3,
   },
   {
-    title: "Security-First Thinking",
+    title: "Security From The Start",
     description:
-      "Authentication, authorization, rate limiting, and API protection are designed into the system from the start.",
+      "Authentication, authorization, rate limiting, and access control are treated as part of the design, not cleanup work later.",
     icon: LockKeyhole,
   },
   {
-    title: "Delivery That Ships",
+    title: "Delivery That Feels Calm",
     description:
-      "I care about how code reaches production, how it is deployed safely, and how it behaves after release.",
+      "I care about how changes are released, how deployment stays predictable, and how systems behave after they go live.",
     icon: TerminalSquare,
   },
 ];
@@ -122,18 +128,18 @@ export const projects: Project[] = [
     title: "Properties API",
     stack: "Node.js, TypeScript, PostgreSQL, Redis/Valkey, JWT, Prometheus",
     description:
-      "A production platform for property search, authentication, admin operations, and API key management.",
+      "A platform for property search, authentication, admin operations, and API key management.",
     highlights: [
       "Built layered middleware for JWT validation, secure headers, request tracing, and centralized error handling.",
       "Implemented multi-level rate limiting across user, API key, and IP scopes to improve stability under load.",
-      "Integrated Redis caching with TTL strategy and exposed Prometheus metrics for production visibility.",
+      "Integrated Redis caching with TTL strategy and exposed Prometheus metrics for clearer system visibility.",
     ],
   },
   {
     title: "AWS Deployment & CI/CD Pipeline",
     stack: "GitHub Actions, Docker, AWS EC2/ECR/SSM, Nginx",
     description:
-      "A production delivery pipeline that turns application releases into repeatable, secure cloud deployments.",
+      "A delivery pipeline that turns application releases into repeatable, secure cloud deployments.",
     highlights: [
       "Automated container build, image publishing, and release flow with GitHub Actions and ECR.",
       "Deployed to EC2 with runtime configuration managed securely through AWS SSM.",
@@ -159,11 +165,11 @@ export const experience: TimelineItem[] = [
     meta: "DataInsight | Remote",
     period: "Nov 2024 - Present",
     summary:
-      "Building and improving production systems that support search, authentication, admin workflows, and reliability.",
+      "Building and improving systems that support search, authentication, admin workflows, and long-term reliability.",
     bullets: [
       "Built modular APIs for search, authentication, and admin workflows.",
       "Improved reliability with structured middleware, centralized logging, and Prometheus metrics.",
-      "Implemented rate limiting, caching, and production monitoring.",
+      "Implemented rate limiting, caching, and monitoring for healthier day-to-day operation.",
     ],
   },
   {
@@ -171,7 +177,7 @@ export const experience: TimelineItem[] = [
     meta: "DataInsight | Remote",
     period: "Aug 2024 - Nov 2024",
     summary:
-      "Supported feature delivery, live issue debugging, and third-party integrations across production-facing systems.",
+      "Supported feature delivery, live issue debugging, and third-party integrations across user-facing systems.",
     bullets: [
       "Contributed to feature delivery and operational fixes.",
       "Worked on third-party integrations and debugging across live environments.",
@@ -203,23 +209,23 @@ export const education: TimelineItem[] = [
   },
 ];
 
-export const contactLinks = [
+export const contactLinks: ContactLink[] = [
   {
     label: "Email",
     value: "7beekash7@gmail.com",
     href: "mailto:7beekash7@gmail.com",
-    icon: Mail,
+    icon: brandIcons.gmail,
   },
   {
     label: "LinkedIn",
     value: "linkedin.com/in/bikash-basaula-283854210",
     href: "https://linkedin.com/in/bikash-basaula-283854210",
-    icon: BriefcaseBusiness,
+    icon: brandIcons.linkedin,
   },
   {
     label: "GitHub",
     value: "github.com/beekashn",
     href: "https://github.com/beekashn",
-    icon: WalletCards,
+    icon: brandIcons.github,
   },
 ];

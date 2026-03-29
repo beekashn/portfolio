@@ -1,7 +1,0 @@
-<svg width="160" height="64" viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="158" height="62" rx="31" fill="#0B0D12"/>
-  <rect x="1" y="1" width="158" height="62" rx="31" stroke="#1E232D"/>
-  <path d="M30 18L39.5 23.5V40.5L30 46L20.5 40.5V23.5L30 18Z" fill="#539E43"/>
-  <path d="M26.7 27V37M33.2 27V37M26.7 27L33.2 37" stroke="white" stroke-width="2.1" stroke-linecap="round"/>
-  <text x="50" y="38" fill="#E8EDF5" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="2">NODE.JS</text>
-</svg>

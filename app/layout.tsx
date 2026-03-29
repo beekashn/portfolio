@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Mono, Lora, Syne } from "next/font/google";
+import { DM_Mono, Lora, Syne, Great_Vibes } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -23,10 +23,16 @@ const lora = Lora({
   style: ["normal", "italic"],
 });
 
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  variable: "--font-signature",
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
-  title: "Bikash Basaula | Backend Software Engineer",
+  title: "Er. Bikash Basaula | Backend Software Engineer",
   description:
-    "Portfolio of Bikash Basaula — backend engineer building secure, scalable systems with Node.js, TypeScript, PostgreSQL, Redis, AWS, and Stripe.",
+    "Portfolio of Er. Bikash Basaula - backend engineer building secure, scalable systems with Node.js, TypeScript, PostgreSQL, Redis, AWS, and Stripe.",
 };
 
 export default function RootLayout({
@@ -38,7 +44,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`h-full scroll-smooth antialiased ${syne.variable} ${dmMono.variable} ${lora.variable}`}
+      className={`h-full scroll-smooth antialiased ${syne.variable} ${dmMono.variable} ${lora.variable} ${greatVibes.variable}`}
     >
       <body suppressHydrationWarning className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="beekashn-theme">

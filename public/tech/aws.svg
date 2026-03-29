@@ -1,6 +1,0 @@
-<svg width="140" height="64" viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="138" height="62" rx="31" fill="#0B0D12"/>
-  <rect x="1" y="1" width="138" height="62" rx="31" stroke="#1E232D"/>
-  <path d="M30.5 35C33.5 36.7 37.2 37.5 41.6 37.5C45.2 37.5 48.5 36.8 51.3 35.4" stroke="#FF9900" stroke-width="2.2" stroke-linecap="round"/>
-  <text x="30" y="30" fill="#F5F7FA" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1">aws</text>
-</svg>

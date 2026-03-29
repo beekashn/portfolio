@@ -1,8 +1,0 @@
-<svg width="184" height="64" viewBox="0 0 184 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="182" height="62" rx="31" fill="#0B0D12"/>
-  <rect x="1" y="1" width="182" height="62" rx="31" stroke="#1E232D"/>
-  <ellipse cx="30" cy="22" rx="9" ry="5.5" fill="#336791"/>
-  <path d="M21 22V38C21 41 25 43.5 30 43.5C35 43.5 39 41 39 38V22" stroke="#336791" stroke-width="2"/>
-  <path d="M21 29C21 32 25 34 30 34C35 34 39 32 39 29" stroke="#86B7D9" stroke-width="2"/>
-  <text x="52" y="38" fill="#E8EDF5" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="2">POSTGRESQL</text>
-</svg>

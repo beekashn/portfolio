@@ -3,15 +3,16 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import { ArrowUpRight, Cloud, Database, WalletCards } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import type { CSSProperties, MouseEvent } from "react";
+import { brandIcons } from "@/components/brand-icons";
 import { projects } from "@/lib/site-data";
 
 const projectModes = [
   {
     label: "API Platform",
-    icon: Database,
+    icon: brandIcons.postgresql,
     chipClass: "text-primary",
     glowClass: "bg-primary/10",
     lineClass: "bg-primary/55",
@@ -19,7 +20,7 @@ const projectModes = [
   },
   {
     label: "CI/CD Pipeline",
-    icon: Cloud,
+    icon: brandIcons.aws,
     chipClass: "text-secondary",
     glowClass: "bg-secondary/10",
     lineClass: "bg-secondary/55",
@@ -27,7 +28,7 @@ const projectModes = [
   },
   {
     label: "Payments System",
-    icon: WalletCards,
+    icon: brandIcons.stripe,
     chipClass: "text-chart-3",
     glowClass: "bg-chart-3/10",
     lineClass: "bg-chart-3/55",
@@ -79,10 +80,10 @@ export function ProjectsSection() {
               <p className="section-label text-[11px] tracking-[0.32em] text-foreground/70">Projects</p>
             </div>
             <h2 className="mt-5 text-3xl font-display font-bold leading-[1.02] tracking-tight sm:text-4xl lg:text-5xl xl:whitespace-nowrap">
-              Selected production projects.
+              Selected projects.
             </h2>
             <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base font-serif">
-              A compact look at three projects that reflect how I approach system design, delivery, and production reliability.
+              A compact look at three projects that reflect how I approach system design, delivery, and dependable software.
             </p>
           </div>
         </div>
@@ -97,24 +98,7 @@ export function ProjectsSection() {
         </Link>
       </div>
 
-      <div className="mt-12 overflow-hidden rounded-[2.4rem] bg-card/55 p-5 ring-1 ring-border/45 sm:p-6">
-        <div className="mb-6 flex items-center justify-between gap-4">
-          <div>
-            <p className="font-mono-custom text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
-              selected projects
-            </p>
-            <p className="mt-2 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-              Projects at a glance
-            </p>
-          </div>
-          <div className="hidden rounded-full bg-background/72 px-4 py-2 ring-1 ring-border/45 sm:block">
-            <span className="font-mono-custom text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-              live work
-            </span>
-          </div>
-        </div>
-
-        <div className="grid gap-4 xl:grid-cols-3">
+        <div className="grid gap-4 xl:grid-cols-3 mt-10 ">
           {projects.map((project, index) => {
             const mode = projectModes[index];
             const Icon = mode.icon;
@@ -130,7 +114,7 @@ export function ProjectsSection() {
                     "--my": "50%",
                   } as CSSProperties
                 }
-                className="group relative overflow-hidden rounded-[1.8rem] bg-background/56 p-4 ring-1 ring-border/40 transition-transform duration-300 hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-[1.8rem] bg-card/60 p-4 ring-1 ring-border/45 transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_var(--mx)_var(--my),color-mix(in_oklab,var(--primary)_10%,transparent),transparent_28%)]" />
                 <div className={`absolute -right-8 top-4 h-28 w-28 rounded-full ${mode.glowClass} blur-3xl`} />
@@ -210,7 +194,6 @@ export function ProjectsSection() {
               </article>
             );
           })}
-        </div>
       </div>
     </section>
   );

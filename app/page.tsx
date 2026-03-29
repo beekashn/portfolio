@@ -1,5 +1,6 @@
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { InteractiveBackground } from "@/components/interactive-background";
 import { AboutSection } from "@/sections/about-section";
 import { ContactSection } from "@/sections/contact-section";
@@ -23,7 +24,7 @@ export default function Home() {
 
       <SiteHeader />
 
-      <main className="mx-auto flex w-full max-w-360 flex-col gap-8 px-4 pb-24 pt-28 sm:px-6 lg:gap-10 lg:px-8">
+      <main className="mx-auto flex w-full max-w-360 flex-col gap-8 px-4 pt-28 sm:px-6 lg:gap-10 lg:px-8">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
@@ -31,6 +32,8 @@ export default function Home() {
         <ExperienceSection />
         <ContactSection />
       </main>
+
+      <SiteFooter />
     </div>
   );
 }
