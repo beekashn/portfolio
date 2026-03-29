@@ -1,4 +1,5 @@
 import { ScrollProgress } from "@/components/scroll-progress";
+import { BackToTopButton } from "@/components/back-to-top-button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { InteractiveBackground } from "@/components/interactive-background";
@@ -13,10 +14,14 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-clip">
       <ScrollProgress />
+      <BackToTopButton />
       <InteractiveBackground />
 
       {/* Ambient background blobs */}
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+      >
         <div className="animate-float-a absolute -left-40 -top-20 h-125 w-125 rounded-full bg-primary/10 blur-[120px]" />
         <div className="animate-float-b absolute -right-32 top-60 h-100 w-100 rounded-full bg-secondary/10 blur-[100px]" />
         <div className="animate-float-c absolute bottom-40 left-1/3 h-87.5 w-87.5 rounded-full bg-chart-3/8 blur-[90px]" />

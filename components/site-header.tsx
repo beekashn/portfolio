@@ -11,6 +11,16 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const handleHomeClick = () => {
+    setActiveSection("home");
+    setMobileOpen(false);
+
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      window.history.replaceState(null, "", "/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 16);
@@ -62,17 +72,20 @@ export function SiteHeader() {
       <div
         className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-3 backdrop-blur-2xl transition-all duration-500 ${
           scrolled
-            ? "bg-background/82 shadow-[0_18px_40px_-24px_hsl(0_0%_0%_/_0.28)] ring-1 ring-border/45"
+            ? "bg-background/82 shadow-[0_18px_40px_-24px_hsl(0_0%_0%/0.28)] ring-1 ring-border/45"
             : "bg-background/50 ring-1 ring-border/25"
         }`}
       >
         {/* Logo */}
         <Link
-          href="#home"
+          href="/"
+          onClick={handleHomeClick}
           className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/12 ring-1 ring-primary/20">
-            <span className="text-xs font-bold font-display text-primary">BB</span>
+            <span className="text-xs font-bold font-display text-primary">
+              BB
+            </span>
           </div>
           <span className="hidden text-sm font-bold tracking-[0.18em] font-display sm:block">
             ER. BIKASH
@@ -118,7 +131,11 @@ export function SiteHeader() {
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card/70 text-foreground ring-1 ring-border/60 md:hidden"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            {mobileOpen ? (
+              <X className="h-4 w-4" />
+            ) : (
+              <Menu className="h-4 w-4" />
+            )}
           </button>
         </div>
       </div>
@@ -137,7 +154,7 @@ export function SiteHeader() {
                     setActiveSection(item.id);
                     setMobileOpen(false);
                   }}
-                  className={`rounded-[1rem] px-4 py-3 text-sm font-display font-medium transition-colors ${
+                  className={`rounded-2xl px-4 py-3 text-sm font-display font-medium transition-colors ${
                     active
                       ? "bg-primary/12 text-primary"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/60"

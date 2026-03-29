@@ -27,12 +27,6 @@ export function SiteFooter() {
               );
             })}
           </div>
-          <Link
-            href="#home"
-            className="text-sm font-medium text-foreground transition-colors hover:text-primary"
-          >
-            Back to top
-          </Link>
         </div>
       </div>
     </footer>
