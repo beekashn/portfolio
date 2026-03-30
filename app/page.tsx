@@ -15,7 +15,7 @@ export default function Home() {
     <div className="relative min-h-screen overflow-x-clip">
       <ScrollProgress />
       <BackToTopButton />
-      <InteractiveBackground />
+      {/* <InteractiveBackground /> */}
 
       {/* Ambient background blobs */}
       <div

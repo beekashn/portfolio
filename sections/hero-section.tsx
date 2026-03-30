@@ -49,7 +49,7 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative scroll-mt-24 py-8 min-h-[calc(100vh-8rem)]"
     >
-        <NetworkCanvas />
+      <NetworkCanvas nodeCount={50} connectDistance={200} className="z-10" />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 dot-grid"
@@ -63,7 +63,7 @@ export function HeroSection() {
         className="pointer-events-none absolute right-[8%] top-[14%] h-56 w-56 rounded-full bg-secondary/8 blur-[110px]"
       />
 
-      <div className="relative px-5 py-6 sm:px-7 sm:py-8 lg:px-10 lg:py-10 -mt-10">
+      <div className="relative">
         <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div className="space-y-8">
             <div data-hero="fade" className="flex flex-wrap items-center gap-3">
