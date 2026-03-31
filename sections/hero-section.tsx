@@ -101,7 +101,10 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div data-hero="fade" className="flex flex-col gap-3 sm:flex-row">
+            <div
+              data-hero="fade"
+              className="relative z-20 flex flex-col gap-3 sm:flex-row"
+            >
               <Link
                 href="#projects"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-display font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
@@ -117,7 +120,10 @@ export function HeroSection() {
               </Link>
             </div>
 
-            <div data-hero="fade" className="flex flex-wrap gap-2">
+            <div
+              data-hero="fade"
+              className="relative z-20 flex flex-wrap gap-2"
+            >
               <Link
                 href="https://github.com/beekashn"
                 target="_blank"
