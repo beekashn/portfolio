@@ -28,7 +28,7 @@ export function ContactSection() {
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="group flex items-center justify-between rounded-[1.5rem] bg-card/60 px-5 py-4 ring-1 ring-border/45 transition-all duration-300 hover:-translate-y-1 hover:ring-primary/25"
+                    className="group flex items-center justify-between rounded-3xl bg-card/60 px-5 py-4 ring-1 ring-border/45 transition-all duration-300 hover:-translate-y-1 hover:ring-primary/25"
                   >
                     <div className="flex items-center gap-4">
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary ring-1 ring-primary/18 transition-colors group-hover:bg-primary/15">
@@ -36,7 +36,7 @@ export function ContactSection() {
                       </div>
                       <div>
                         <p className="font-mono-custom text-xs text-muted-foreground">{item.label}</p>
-                        <p className="mt-0.5 max-w-[200px] truncate text-sm font-medium">{item.value}</p>
+                        <p className="mt-0.5 max-w-50 truncate text-sm font-medium">{item.value}</p>
                       </div>
                     </div>
                     <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
@@ -46,7 +46,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2rem] bg-card/60 p-6 ring-1 ring-border/45 sm:p-8">
+          <div className="relative overflow-hidden rounded-4xl bg-card/60 p-6 ring-1 ring-border/45 sm:p-8">
             <div className="relative">
               <p className="section-label">Send a message</p>
               <h3 className="mt-2 text-2xl font-display font-bold tracking-tight">Tell me what you are building.</h3>

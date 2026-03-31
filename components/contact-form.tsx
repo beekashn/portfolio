@@ -1,22 +1,70 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { Send } from "lucide-react";
+import { useEffect, useState } from "react";
+import { CheckCircle2, Send } from "lucide-react";
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("Message could not be sent. Please try again.");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+
+  useEffect(() => {
+    if (status !== "success") {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setStatus("idle");
+    }, 2500);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [status]);
+
+  const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const name = String(formData.get("name") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const message = String(formData.get("message") ?? "").trim();
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name || "a visitor"}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    window.location.href = `mailto:7beekash7@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    event.currentTarget.reset();
+    const form = event.currentTarget;
+
+    if (!formspreeEndpoint) {
+      setErrorMessage("Formspree endpoint is missing.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("submitting");
+    setErrorMessage("Message could not be sent. Please try again.");
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const responseData = (await response.json().catch(() => null)) as
+          | { errors?: Array<{ message?: string }>; error?: string }
+          | null;
+
+        const apiError =
+          responseData?.errors?.map((error) => error.message).filter(Boolean).join(" ") ||
+          responseData?.error ||
+          "Form submission failed.";
+
+        throw new Error(apiError);
+      }
+
+      setStatus("success");
+      setErrorMessage("Message could not be sent. Please try again.");
+      form.reset();
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Form submission failed.");
+      setStatus("error");
+    }
   };
 
   const inputClass =
@@ -49,14 +97,21 @@ export function ContactForm() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <button
           type="submit"
-          className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-display font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
+          disabled={status === "submitting"}
+          className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-display font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 disabled:pointer-events-none disabled:opacity-70"
         >
-          Send message
+          {status === "submitting" ? "Sending..." : "Send message"}
           <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </button>
-        {submitted && (
+        {status === "success" && (
+          <p className="inline-flex items-center gap-2 rounded-full border border-emerald-500/35 bg-emerald-500/12 px-4 py-2 text-sm font-semibold text-emerald-700 shadow-sm shadow-emerald-500/10 animate-fade-in-up dark:text-emerald-300">
+            <CheckCircle2 className="h-4 w-4" />
+            Message sent successfully.
+          </p>
+        )}
+        {status === "error" && (
           <p className="text-xs text-muted-foreground font-serif animate-fade-in-up">
-            ✓ Your email client should open shortly.
+            {errorMessage}
           </p>
         )}
       </div>
