@@ -1,12 +1,9 @@
 "use client";
 
 import { ArrowUp } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export function BackToTopButton() {
-  const pathname = usePathname();
-  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -21,13 +18,12 @@ export function BackToTopButton() {
   }, []);
 
   const handleClick = () => {
-    if (pathname === "/") {
-      window.history.replaceState(null, "", "/");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-
-    router.push("/");
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${window.location.search}`,
+    );
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

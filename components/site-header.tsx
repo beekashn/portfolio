@@ -15,8 +15,12 @@ export function SiteHeader() {
     setActiveSection("home");
     setMobileOpen(false);
 
-    if (typeof window !== "undefined" && window.location.pathname === "/") {
-      window.history.replaceState(null, "", "/");
+    if (typeof window !== "undefined") {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}`,
+      );
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
@@ -77,10 +81,10 @@ export function SiteHeader() {
         }`}
       >
         {/* Logo */}
-        <Link
-          href="/"
+        <button
+          type="button"
           onClick={handleHomeClick}
-          className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex cursor-pointer items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/12 ring-1 ring-primary/20">
             <span className="text-xs font-bold font-display text-primary">
@@ -90,7 +94,7 @@ export function SiteHeader() {
           <span className="hidden text-sm font-bold tracking-[0.18em] font-display sm:block">
             ER. BIKASH
           </span>
-        </Link>
+        </button>
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">

@@ -132,7 +132,20 @@ export function ProjectsSection() {
                         <p className="mt-1 text-sm font-display font-semibold">{project.title}</p>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    {project.githubUrl ? (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="rounded-full p-1.5 text-muted-foreground transition-colors hover:text-primary"
+                        aria-label={`View ${project.title} on GitHub`}
+                      >
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </a>
+                    ) : (
+                      <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    )}
                   </div>
 
                   <p className="text-sm leading-7 text-muted-foreground font-serif">

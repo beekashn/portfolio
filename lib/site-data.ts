@@ -27,6 +27,7 @@ export type Project = {
   stack: string;
   description: string;
   highlights: string[];
+  githubUrl?: string;
 };
 
 export type TimelineItem = {
@@ -134,6 +135,7 @@ export const projects: Project[] = [
       "Implemented multi-level rate limiting across user, API key, and IP scopes to improve stability under load.",
       "Integrated Redis caching with TTL strategy and exposed Prometheus metrics for clearer system visibility.",
     ],
+    githubUrl: "https://github.com/beekashn",
   },
   {
     title: "AWS Deployment & CI/CD Pipeline",
@@ -145,6 +147,7 @@ export const projects: Project[] = [
       "Deployed to EC2 with runtime configuration managed securely through AWS SSM.",
       "Configured Nginx with HTTPS termination for a safer and more stable production edge.",
     ],
+    githubUrl: "https://github.com/beekashn",
   },
   {
     title: "Tenant Portal Payments System",
@@ -156,6 +159,7 @@ export const projects: Project[] = [
       "Persisted transaction state in Firestore to keep payment flows simple and reliable.",
       "Triggered automated email notifications for payment events and status updates.",
     ],
+    githubUrl: "https://github.com/beekashn",
   },
 ];
 
