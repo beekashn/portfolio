@@ -3,8 +3,10 @@
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, Download, MapPin } from "lucide-react";
 import { useEffect, useRef } from "react";
+
+const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 import { brandIcons } from "@/components/brand-icons";
 import { stats } from "@/lib/site-data";
 import { NetworkCanvas } from "@/components/network-canvas";
@@ -118,6 +120,14 @@ export function HeroSection() {
               >
                 Get in Touch
               </Link>
+              <a
+                href={`${basePath}/resume.pdf`}
+                download="Bikash_Basaula_Resume.pdf"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-background/70 px-6 text-sm font-display font-semibold ring-1 ring-border/55 transition-all duration-300 hover:-translate-y-0.5 hover:text-primary hover:ring-primary/25"
+              >
+                <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+                Download CV
+              </a>
             </div>
 
             <div
